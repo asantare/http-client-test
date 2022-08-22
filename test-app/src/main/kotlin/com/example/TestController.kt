@@ -21,7 +21,7 @@ class TestController {
     @Inject
     lateinit var ctx: ApplicationContext
 
-    @Get
+    @Get("/call")
     @Produces(MediaType.TEXT_PLAIN)
     fun doTest(): String {
         val config = DefaultHttpClientConfiguration()
@@ -40,4 +40,9 @@ class TestController {
         }
     }
 
+    @Get("/echo")
+    @Produces(MediaType.TEXT_PLAIN)
+    fun echo(): String {
+        return "ECHO!"
+    }
 }
